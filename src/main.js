@@ -3,13 +3,16 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './vuex'
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
+/* webpack.base.conf.js entry */
 new Vue({
-  el: '#app',
+  el: '#app', // 这样写就可以不用写routerview?
   router,
-  template: '<App/>',
+  store,
+  template: '<App />',
   components: { App }
 })

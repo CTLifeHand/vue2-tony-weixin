@@ -5,6 +5,8 @@
 ## 构建
 ```构建代码
 vue init webpack vue2-tony-weixin
+sass环境
+npm install sass-loader node-sass webpack --save-dev
 ```
 
 ### 项目运行
