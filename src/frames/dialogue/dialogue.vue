@@ -1,7 +1,7 @@
 <template>
 	<section class="dialogue">
 		<!-- 头部 -->
-		<nav logo-part="true" search-part="true" add="true"></nav>
+		<Nav logo-part="true" search-part="true" add="true"></Nav>
 		<div class="dialogue_con">
 			<!-- 电脑登录 -->
 			<section class="computer" v-if="computershow">
