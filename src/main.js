@@ -7,7 +7,7 @@ import store from './vuex'
 
 // style
 import './style/public.scss'
-import './config/rem'
+import './config/rem' // 屏幕适配
 
 Vue.config.productionTip = false
 

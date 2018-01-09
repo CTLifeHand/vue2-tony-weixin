@@ -18,6 +18,15 @@ npm run dev (访问本地，运行后访问 http://localhost:8882)
 
 ```
 
+### keep-alive
+- Vue keep-alive实践总结
+```https://www.cnblogs.com/sysuhanyf/p/7454530.html
+https://www.cnblogs.com/sysuhanyf/p/7454530.html
+```
+
+### 通讯录的点击list滚动有问题
+- mUtils的animate函数不生效
+
 ### HTML5屏幕适配标签设置
 ```http://blog.csdn.net/zxf13598202302/article/details/51594661
 开发HTML5游戏中，我们常用的一些mata标签:
@@ -95,6 +104,11 @@ http://blog.sina.com.cn/s/blog_6d48e77101015kqr.html
 
 http://blog.sina.com.cn/s/blog_3f1fc8950101fz2v.html
 ```
+
+### 基于路由的动画
+- https://router.vuejs.org/zh-cn/advanced/transitions.html
+
+
 
 ### 说明
 

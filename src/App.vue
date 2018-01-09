@@ -1,7 +1,9 @@
 <template>
   <div id="app">
+    <!-- 所以可以配合 <transition> 和 <keep-alive> 使用
+      https://router.vuejs.org/zh-cn/api/router-view.html -->
     <transition name="router-fade" mode="out-in">
-			<keep-alive>
+			<keep-alive> <!-- 需要缓存数据 -->
 				<router-view v-if="$route.meta.keepAlive"></router-view>
 			</keep-alive>
 		</transition>

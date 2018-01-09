@@ -85,9 +85,10 @@
 		</section>
 		<!-- 底部导航 -->
 		<TarBar></TarBar>
-		<transition name="router-show">
+    <!-- 应该有子路由才有用 以下暂时不知道有啥用 -->
+		<!-- <transition name="router-show">
 		    <router-view></router-view>
-		</transition>
+		</transition> -->
 	</section>
 </template>
 

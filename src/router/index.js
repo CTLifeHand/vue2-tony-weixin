@@ -19,7 +19,8 @@ const router = new Router({
     {
       path: '/addressbook',
       name: 'addressbook',
-      component: addressbook
+      component: addressbook,
+      meta: { keepAlive: true }
     },
     {
       path: '/find',
@@ -47,7 +48,7 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  if (from.meta.keepAlive) {
+  if (from.meta.keepAlive) { // from 是router (解决addressbook的滚动条问题 )
     from.meta.savedPosition = document.body.scrollTop
   }
   next()
