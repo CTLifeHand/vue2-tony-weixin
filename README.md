@@ -100,10 +100,6 @@ http://blog.sina.com.cn/s/blog_3f1fc8950101fz2v.html
 
 > 本项目主要用于熟悉vue2+vuex的用法
 
-> 如有问题请直接在Issues中提出，或加qq：812571880
-
-> 如果觉得对您学习vue有点点帮助，请右上角star一下吧   ^_^
-
 # 目标功能
 
 - [x] 微信
