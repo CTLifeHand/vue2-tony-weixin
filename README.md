@@ -27,6 +27,10 @@ https://www.cnblogs.com/sysuhanyf/p/7454530.html
 ### 通讯录的点击list滚动有问题
 - mUtils的animate函数不生效
 
+### vue-awesome-swiper
+- https://www.npmjs.com/package/vue-awesome-swiper
+- 看以上的SSR
+
 ### HTML5屏幕适配标签设置(可以上m.jd.com参考 这是手机端才需要设置)
 ```http://blog.csdn.net/zxf13598202302/article/details/51594661
 开发HTML5游戏中，我们常用的一些mata标签:

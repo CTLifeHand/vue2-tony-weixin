@@ -10,8 +10,8 @@ const me = r => require.ensure([], () => r(require('../frames/me/me')), 'me')
 // push
 // conversation
 const singlechat = r => require.ensure([], () => r(require('../frames/conversation/singlechat')), 'singlechat')
+const chatmessage = r => require.ensure([], () => r(require('../frames/conversation/chatmessage/chatmessage')), 'chatmessage')
 // const groupchat = r => require.ensure([], () => r(require('../frames/conversation/groupchat')), 'groupchat')
-// const chatmessage = r => require.ensure([], () => r(require('../frames/conversation/chatmessage/chatmessage')), 'chatmessage')
 // const groupchatmessage = r => require.ensure([], () => r(require('../frames/conversation/chatmessage/groupchatmessage')), 'groupchatmessage')
 
 // addressbook
@@ -59,10 +59,10 @@ const router = new Router({
       path: '/singlechat',
       component: singlechat,
       children: [
-        // {
-        //   path: '/singlechat/chatmessage',
-        //   component: chatmessage,
-        // }
+        {
+          path: '/singlechat/chatmessage',
+          component: chatmessage
+        }
       ]
 
     }

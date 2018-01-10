@@ -81,27 +81,27 @@
             <div class="swiper-wrapper">
               <div class="swiper-slide" v-for="(value,item) in chatData">
                 <ul class="clear">
-                       			<li v-for="value in value">
-                       				<div class="swiper_svg">
-           	            				<svg fill="#7a8187">
-           	            					<use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="value.chatSvgid"></use>
-           	            				</svg>
-                       				</div>
-                       				<div class="swiper_text">
-                       					{{value.chatSvgname}}
-                       				</div>
-                       			</li>
+                  <li v-for="value in value">
+                    <div class="swiper_svg">
+                      <svg fill="#7a8187">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="value.chatSvgid"></use>
+                      </svg>
+                    </div>
+                    <div class="swiper_text">
+                      {{value.chatSvgname}}
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
             <div class="swiper-pagination"></div>
           </div>
-
 			</section>
 		</footer>
 		<section class="enlarge" v-if="enlarge" @click="enlargeHide" :class="{'movein-animate' : enlargeShow, 'moveout-animate-leave' : enlargehides}" >
 			<img :src="enlargeurl" alt="">
 		</section>
+    <!-- push的方式(由于是子路由 不会刷新父路由 TabBar不一样 会刷新的 所以需要alive) -->
 		<transition name="router-show">
 		    <router-view></router-view>
 		</transition>
@@ -171,7 +171,7 @@ export default {
       // })
       console.log(
         'This is current swiper instance object', this.mySwiper,
-        'I will slideTo banners 3')
+        'https://www.npmjs.com/package/vue-awesome-swiper')
     })
     this.chatname = this.infor.remarks ? this.infor.remarks : this.infor.petname
     this.getUserInfo()
@@ -232,6 +232,7 @@ export default {
       try {
         const res = await fetch('/robot/question', { question: inputmessage })
         this.light = false
+        console.log(res)
         if (res.status === 200) {
           this.infor.Messageblob = res.content
           this.conversine.push({
@@ -244,6 +245,7 @@ export default {
             window.scrollTo(0, this.$refs.singleHeight.offsetHeight - window.innerHeight)
           })
         } else {
+          console.log(res)
           throw new Error(res)
         }
       } catch (err) {
@@ -274,6 +276,7 @@ export default {
 .router-show-leave-active {
   transition: all 0.4s;
 }
+/* push的方式 */
 .router-show-enter,
 .router-show-leave-active {
   transform: translateX(100%);
