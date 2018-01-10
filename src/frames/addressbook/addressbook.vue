@@ -1,90 +1,95 @@
 <template>
-    <section>
-  <!-- 头部 -->
-  <Nav logo-part="true" search-part="true" add="true"></Nav>
-  <!-- 联系人列表 -->
-  <section class="contacts" ref="contactList">
-   <div class="contacts_top">
-    <ul>
-     <router-link to="" tag="li" class="contacts_li">
-      <div class="contacts_img">
-       <svg>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#newfriend"></use>
-       </svg>
-      </div>
-      <div class="contacts_text">
-       新的朋友
-      </div>
-     </router-link>
-     <router-link to="" tag="li" class="contacts_li">
-      <div class="contacts_img">
-       <svg>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#groupchat"></use>
-       </svg>
-      </div>
-      <div class="contacts_text">
-       群聊
-      </div>
-     </router-link>
-     <router-link to="" tag="li" class="contacts_li">
-      <div class="contacts_img">
-       <svg>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#label"></use>
-       </svg>
-      </div>
-      <div class="contacts_text">
-       标签
-      </div>
-     </router-link>
-     <router-link to="" tag="li" class="contacts_li">
-      <div class="contacts_img">
-       <svg>
-        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#accounts"></use>
-       </svg>
-      </div>
-      <div class="contacts_text">
-       公众号
-      </div>
-     </router-link>
-    </ul>
-   </div>
-   <div class="contacts_bottom" ref="addlistfather">
-    <ul class="contacts_bottom_ul" ref="addlist">
-     <li v-for="(value, key, index) in manageaddress" :key="key" class="addlistLi" >
-      <h1>{{key}}</h1>
+  <section>
+    <!-- 头部 -->
+    <Nav logo-part="true" search-part="true" add="true"></Nav>
+    <!-- 联系人列表 -->
+    <section class="contacts" ref="contactList">
+    <div class="contacts_top">
       <ul>
-       <router-link to="/addressbook/details" tag="li" v-for="(item, index) in value":key="index" @click.native='detailMessage(item)'>
-        <div class="personlist_img">
-         <img :src="item.headurl" alt="">
+      <router-link to="" tag="li" class="contacts_li">
+        <div class="contacts_img">
+        <svg>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#newfriend"></use>
+        </svg>
         </div>
-        <div class="personlist_name ellipsis">
-         {{item.remarks ? item.remarks : item.petname}}
+        <div class="contacts_text">
+        新的朋友
         </div>
-       </router-link>
+      </router-link>
+      <router-link to="" tag="li" class="contacts_li">
+        <div class="contacts_img">
+        <svg>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#groupchat"></use>
+        </svg>
+        </div>
+        <div class="contacts_text">
+        群聊
+        </div>
+      </router-link>
+      <router-link to="" tag="li" class="contacts_li">
+        <div class="contacts_img">
+        <svg>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#label"></use>
+        </svg>
+        </div>
+        <div class="contacts_text">
+        标签
+        </div>
+      </router-link>
+      <router-link to="" tag="li" class="contacts_li">
+        <div class="contacts_img">
+        <svg>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#accounts"></use>
+        </svg>
+        </div>
+        <div class="contacts_text">
+        公众号
+        </div>
+      </router-link>
       </ul>
-     </li>
-    </ul>
-    <section class="guide_wipe">
-     <section class="list_guide">
-      <dl>
-       <dd v-for="(value, index) in sortlist" :key="index" @touchstart="startThing(value)" @touchend="endThing">{{value}}</dd>
-      </dl>
-      <p>#</p>
-     </section>
-    </section>
-    <section class="big-letter" v-if="letter">
-     <div class="letter-bg"></div>
-     <div class="letter">
-      {{atpresent}}
-     </div>
-    </section>
-    <section class="peoplenum">{{peoplenum}}位联系人</section>
-   </div>
+    </div>
+    <div class="contacts_bottom" ref="addlistfather">
+      <ul class="contacts_bottom_ul" ref="addlist">
+      <li v-for="(value, key, index) in manageaddress" :key="key" class="addlistLi" >
+        <h1>{{key}}</h1>
+        <ul>
+        <router-link to="/addressbook/details" tag="li" v-for="(item, index) in value":key="index" @click.native='detailMessage(item)'>
+          <div class="personlist_img">
+          <img :src="item.headurl" alt="">
+          </div>
+          <div class="personlist_name ellipsis">
+          {{item.remarks ? item.remarks : item.petname}}
+          </div>
+        </router-link>
+        </ul>
+      </li>
+      </ul>
+        <section class="guide_wipe">
+        <section class="list_guide">
+          <dl>
+          <dd v-for="(value, index) in sortlist" :key="index" @touchstart="startThing(value)" @touchend="endThing">{{value}}</dd>
+          </dl>
+          <p>#</p>
+        </section>
+        </section>
+      <!-- 字母提示 -->
+        <section class="big-letter" v-if="letter">
+          <div class="letter-bg"></div>
+          <div class="letter">
+            {{atpresent}}
+          </div>
+        </section>
+        <section class="peoplenum">{{peoplenum}}位联系人</section>
+    </div>
 
+    </section>
+    <!-- 底部导航 -->
+    <TarBar></TarBar>
+    <!-- 缺少这个Router匹配不出来了 吓死了 -->
+    <transition name="router-show">
+      <router-view></router-view>
+    </transition>
   </section>
-  <!-- 底部导航 -->
-  <TarBar></TarBar>
- </section>
 </template>
 
 <script>
@@ -113,7 +118,7 @@ export default {
     })
   },
   computed: {
-
+    // 计算通讯录导航
     manageaddress () {
       let addresslist = {}
       for (let i = 65; i <= 90; i++) {
@@ -170,6 +175,7 @@ export default {
         }
       })
     },
+    // 隐藏
     endThing () {
       this.letter = false
     }

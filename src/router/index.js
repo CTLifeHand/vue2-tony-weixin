@@ -3,10 +3,15 @@ import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 
 const dialogue = r => require.ensure([], () => r(require('../frames/dialogue/dialogue')), 'dialogue')
-
 const addressbook = r => require.ensure([], () => r(require('../frames/addressbook/addressbook')), 'addressbook')
 const find = r => require.ensure([], () => r(require('../frames/find/find')), 'find')
 const me = r => require.ensure([], () => r(require('../frames/me/me')), 'me')
+
+// push
+// addressbook
+const details = r => require.ensure([], () => r(require('../frames/addressbook/details/details')), 'details')
+const more = r => require.ensure([], () => r(require('../frames/addressbook/details/more/more')), 'more')
+
 Vue.use(Router)
 
 const router = new Router({
@@ -18,9 +23,21 @@ const router = new Router({
     },
     {
       path: '/addressbook',
-      name: 'addressbook',
+      name: 'addressbook', // 路由应该可以用于push
       component: addressbook,
-      meta: { keepAlive: true }
+      meta: { keepAlive: true },
+      children: [
+        {
+          path: '/addressbook/dialogue',
+          component: details, // 详细资料
+          children: [
+            {
+              path: '/addressbook/details/more',
+              component: more // 更多
+            }
+          ]
+        }
+      ]
     },
     {
       path: '/find',
