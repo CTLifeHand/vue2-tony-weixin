@@ -85,10 +85,10 @@
 		</section>
 		<!-- 底部导航 -->
 		<TarBar></TarBar>
-    <!-- 应该有子路由才有用 以下暂时不知道有啥用 -->
-		<!-- <transition name="router-show">
-		    <router-view></router-view>
-		</transition> -->
+    <!-- 缺少这个Router匹配不出来了 吓死了 -->
+    <transition name="router-show">
+      <router-view></router-view>
+    </transition>
 	</section>
 </template>
 

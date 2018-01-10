@@ -8,6 +8,12 @@ const find = r => require.ensure([], () => r(require('../frames/find/find')), 'f
 const me = r => require.ensure([], () => r(require('../frames/me/me')), 'me')
 
 // push
+// conversation
+// const singlechat = r => require.ensure([], () => r(require('../frames/conversation/singlechat')), 'singlechat')
+// const groupchat = r => require.ensure([], () => r(require('../frames/conversation/groupchat')), 'groupchat')
+// const chatmessage = r => require.ensure([], () => r(require('../frames/conversation/chatmessage/chatmessage')), 'chatmessage')
+// const groupchatmessage = r => require.ensure([], () => r(require('../frames/conversation/chatmessage/groupchatmessage')), 'groupchatmessage')
+
 // addressbook
 const details = r => require.ensure([], () => r(require('../frames/addressbook/details/details')), 'details')
 const more = r => require.ensure([], () => r(require('../frames/addressbook/details/more/more')), 'more')
@@ -28,7 +34,7 @@ const router = new Router({
       meta: { keepAlive: true },
       children: [
         {
-          path: '/addressbook/dialogue',
+          path: '/addressbook/details',
           component: details, // 详细资料
           children: [
             {
