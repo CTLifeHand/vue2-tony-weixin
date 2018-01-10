@@ -3,4 +3,4 @@
 /dist/
 /*.js
 
-swiper.min.js
+/src/config

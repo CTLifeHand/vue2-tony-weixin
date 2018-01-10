@@ -9,7 +9,7 @@ const me = r => require.ensure([], () => r(require('../frames/me/me')), 'me')
 
 // push
 // conversation
-// const singlechat = r => require.ensure([], () => r(require('../frames/conversation/singlechat')), 'singlechat')
+const singlechat = r => require.ensure([], () => r(require('../frames/conversation/singlechat')), 'singlechat')
 // const groupchat = r => require.ensure([], () => r(require('../frames/conversation/groupchat')), 'groupchat')
 // const chatmessage = r => require.ensure([], () => r(require('../frames/conversation/chatmessage/chatmessage')), 'chatmessage')
 // const groupchatmessage = r => require.ensure([], () => r(require('../frames/conversation/chatmessage/groupchatmessage')), 'groupchatmessage')
@@ -54,6 +54,17 @@ const router = new Router({
       path: '/me',
       name: 'me',
       component: me
+    },
+    {
+      path: '/singlechat',
+      component: singlechat,
+      children: [
+        // {
+        //   path: '/singlechat/chatmessage',
+        //   component: chatmessage,
+        // }
+      ]
+
     }
   ],
   mode: 'history', // 路由模式

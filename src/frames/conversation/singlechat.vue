@@ -57,7 +57,8 @@
 				</div>
 			</section>
 			<section class="foot_bottom">
-	    		<div class="swiper-container">
+          <!-- 工具栏 -->
+	    		<!-- <div class="swiper-container">
 			        <div class="swiper-wrapper">
            	            <div class="swiper-slide" v-for="(value,item) in chatData">
                        		<ul class="clear">
@@ -75,7 +76,27 @@
            	            </div>
 			        </div>
 			        <div class="swiper-pagination"></div>
-			    </div>
+			    </div> -->
+          <div class="swiper-container" v-swiper:mySwiper="swiperOption">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" v-for="(value,item) in chatData">
+                <ul class="clear">
+                       			<li v-for="value in value">
+                       				<div class="swiper_svg">
+           	            				<svg fill="#7a8187">
+           	            					<use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="value.chatSvgid"></use>
+           	            				</svg>
+                       				</div>
+                       				<div class="swiper_text">
+                       					{{value.chatSvgname}}
+                       				</div>
+                       			</li>
+                </ul>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+
 			</section>
 		</footer>
 		<section class="enlarge" v-if="enlarge" @click="enlargeHide" :class="{'movein-animate' : enlargeShow, 'moveout-animate-leave' : enlargehides}" >
@@ -85,16 +106,22 @@
 		    <router-view></router-view>
 		</transition>
 	</section>
-
 </template>
+
 
 <script>
 import headTop from '@/components/Nav'
 import { mapState, mapActions } from 'vuex'
 import { userWord, chatData } from '@/service/getData'
 import { imgurl } from '@/config/env'
-import Swiper from '@/config/swiper.min.js'
+// import '@/config/swiper.min.js' https://www.npmjs.com/package/vue-awesome-swiper
 import fetch from '@/config/fetch'
+
+import Vue from 'vue'
+if (process.browser) {
+  const VueAwesomeSwiper = require('vue-awesome-swiper/dist/ssr')
+  Vue.use(VueAwesomeSwiper)
+}
 
 export default {
   data () {
@@ -113,7 +140,21 @@ export default {
       robotCont: '',
       newInfo: {},
       chatData: {},
-      userInfoData: {}
+      userInfoData: {},
+      swiperOption: {
+        loop: false,
+        pagination: {
+          el: '.swiper-pagination'
+        },
+        on: {
+          slideChange () {
+            console.log('onSlideChangeEnd', this)
+          },
+          tap () {
+            console.log('onTap', this)
+          }
+        }
+      }
     }
   },
   created () {
@@ -124,10 +165,13 @@ export default {
       this.chatData = res
     }).then(() => {
       // 初始化swiper
-      new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        loop: false
-      })
+      // new Swiper('.swiper-container', {
+      //   pagination: '.swiper-pagination',
+      //   loop: false
+      // })
+      console.log(
+        'This is current swiper instance object', this.mySwiper,
+        'I will slideTo banners 3')
     })
     this.chatname = this.infor.remarks ? this.infor.remarks : this.infor.petname
     this.getUserInfo()
@@ -153,7 +197,7 @@ export default {
       'getUserInfo'
     ]),
     whatInput () {
-      if (this.inputmessage.replace(/\s+/g, '') == '') {
+      if (this.inputmessage.replace(/\s+/g, '') === '') {
         this.light = false
       } else {
         this.light = true
@@ -188,7 +232,7 @@ export default {
       try {
         const res = await fetch('/robot/question', { question: inputmessage })
         this.light = false
-        if (res.status == 200) {
+        if (res.status === 200) {
           this.infor.Messageblob = res.content
           this.conversine.push({
             'wxid': this.infor.wxid,
@@ -225,7 +269,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "../../style/public";
-@import '../../style/swiper.min.css';
+@import "../../style/swiper.min.css";
 .router-show-enter-active,
 .router-show-leave-active {
   transition: all 0.4s;
