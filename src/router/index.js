@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 
+// Base
+const search = r => require.ensure([], () => r(require('../components/search')), 'search')
+
 const dialogue = r => require.ensure([], () => r(require('../frames/dialogue/dialogue')), 'dialogue')
 const addressbook = r => require.ensure([], () => r(require('../frames/addressbook/addressbook')), 'addressbook')
 const find = r => require.ensure([], () => r(require('../frames/find/find')), 'find')
@@ -14,9 +17,16 @@ const chatmessage = r => require.ensure([], () => r(require('../frames/conversat
 const groupchat = r => require.ensure([], () => r(require('../frames/conversation/groupchat')), 'groupchat')
 const groupchatmessage = r => require.ensure([], () => r(require('../frames/conversation/chatmessage/groupchatmessage')), 'groupchatmessage')
 
+// dialogue
+const computer = r => require.ensure([], () => r(require('../frames/dialogue/push/computer')), 'computer')
+const transfer = r => require.ensure([], () => r(require('../frames/dialogue/push/transfer')), 'transfer')
+
 // addressbook
 const details = r => require.ensure([], () => r(require('../frames/addressbook/details/details')), 'details')
 const more = r => require.ensure([], () => r(require('../frames/addressbook/details/more/more')), 'more')
+// find
+const friendcircle = r => require.ensure([], () => r(require('../frames/find/push/friendcircle')), 'friendcircle')
+const miniapps = r => require.ensure([], () => r(require('../frames/find/push/miniapps')), 'miniapps')
 
 Vue.use(Router)
 
@@ -48,7 +58,17 @@ const router = new Router({
     {
       path: '/find',
       name: 'find',
-      component: find
+      component: find,
+      children: [
+        {
+          path: '/find/friendcircle',
+          component: friendcircle // 朋友圈
+        },
+        {
+          path: '/find/miniapps',
+          component: miniapps // 小程序
+        }
+      ]
     },
     {
       path: '/me',
@@ -75,7 +95,10 @@ const router = new Router({
           component: groupchatmessage
         }
       ]
-    }
+    },
+    { path: '/search', component: search }, // 我
+    { path: '/computer', component: computer }, // 电脑登录
+    { path: '/transfer', component: transfer } // 文件传送助手
   ],
   mode: 'history', // 路由模式
   strict: process.env.NODE_ENV !== 'production',
