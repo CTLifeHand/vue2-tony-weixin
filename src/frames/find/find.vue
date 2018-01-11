@@ -27,10 +27,28 @@ export default {
     Nav,
     findMe,
     TarBar
+  },
+  created () {
+
+  },
+  mounted () {
+
+  },
+  computed: {
+
+  },
+  methods: {
+
   }
 }
 </script>
 
 <style lang="scss">
-
+	@import "../../style/public";
+	.router-show-enter-active,.router-show-leave-active{
+		transition: all .4s;
+	}
+	.router-show-enter,.router-show-leave-active{
+		transform:translateX(100%)
+	}
 </style>
