@@ -4,7 +4,7 @@ let baseUrl
 if (process.env.NODE_ENV === 'development') {
   baseUrl = 'http://localhost:8003'
 } else {
-  baseUrl = 'http://cangdu.org:8003'
+  baseUrl = 'http://192.168.3.3:8003' // 手机端测试也可以使用了
 }
 export {
   baseUrl,

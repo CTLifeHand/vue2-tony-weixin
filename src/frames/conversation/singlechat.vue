@@ -117,11 +117,7 @@ import { imgurl } from '@/config/env'
 // import '@/config/swiper.min.js' https://www.npmjs.com/package/vue-awesome-swiper
 import fetch from '@/config/fetch'
 
-import Vue from 'vue'
-if (process.browser) {
-  const VueAwesomeSwiper = require('vue-awesome-swiper/dist/ssr')
-  Vue.use(VueAwesomeSwiper)
-}
+import 'swiper/dist/css/swiper.css'
 
 export default {
   data () {
@@ -271,7 +267,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "../../style/public";
-@import "../../style/swiper.min.css";
 .router-show-enter-active,
 .router-show-leave-active {
   transition: all 0.4s;

@@ -18,6 +18,12 @@ npm run dev (访问本地，运行后访问 http://localhost:8882)
 
 ```
 
+## 手机端测试
+- live-server
+
+
+##
+
 ### keep-alive
 - Vue keep-alive实践总结
 ```https://www.cnblogs.com/sysuhanyf/p/7454530.html

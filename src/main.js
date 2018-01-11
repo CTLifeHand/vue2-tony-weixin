@@ -11,6 +11,12 @@ import './config/rem' // 屏幕适配
 
 Vue.config.productionTip = false
 
+/* 使用前写也可以 但是就没一个页面都得写一次 */
+if (process.browser) {
+  const VueAwesomeSwiper = require('vue-awesome-swiper/dist/ssr')
+  Vue.use(VueAwesomeSwiper)
+}
+
 /* eslint-disable no-new */
 /* webpack.base.conf.js entry */
 new Vue({
