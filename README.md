@@ -50,6 +50,9 @@ https://www.cnblogs.com/sysuhanyf/p/7454530.html
 ### 通讯录的点击list滚动有问题
 - mUtils的animate函数不生效
 
+### JavaScript数组去重方法
+- 要修改原型链
+
 ### vue-awesome-swiper
 - https://www.npmjs.com/package/vue-awesome-swiper
 - 看以上的SSR
