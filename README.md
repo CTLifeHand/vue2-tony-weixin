@@ -22,7 +22,24 @@ npm run dev (访问本地，运行后访问 http://localhost:8882)
 - live-server
 
 
-##
+## ESLint的错误提示
+- 全局变量 IO
+- 利用注释改变局部
+
+```注释改变局部
+也可以在注释中关闭所有或者某个规则：
+
+/* eslint-disable */
+/* eslint-enable */
+
+/* eslint-disable no-alert, no-console */
+/* eslint-enable no-alert, no-console */
+
+作者：给我一炷香的时间
+链接：https://www.jianshu.com/p/2bcdce1dc8d4
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
 
 ### keep-alive
 - Vue keep-alive实践总结

@@ -249,6 +249,8 @@ export default {
         }
         this.groupconversine = [...groupData.history, ...this.groupconversine]
         this.allgroups = [...this.groupconversine]
+
+        /* eslint-disable */
         Array.prototype.unique = function () { // 数组去重
           var res = [this[0]]
           for (var l = 1; l < this.length; l++) {
@@ -267,6 +269,7 @@ export default {
         }
         var arr = this.allgroups
         this.GET_ALLGROUP(arr.unique())// 保存所有人数据信息
+        /* eslint-enable */
       }
       this.$nextTick(() => {
         this.loadStatus = false
@@ -516,7 +519,7 @@ export default {
 }
 .coversation {
   background-color: #ebebeb;
-  overflow-scrolling: touch;
+  // overflow-scrolling: touch;
   -webkit-overflow-scrolling: touch;
   padding-top: 2.06933rem;
   .coversationlist {
@@ -529,7 +532,7 @@ export default {
       padding-top: 0.4rem;
       width: 15.4rem;
       overflow-x: hidden;
-      overflow-scrolling: touch;
+      // overflow-scrolling: touch;
       -webkit-overflow-scrolling: touch;
       top: 0;
       li {

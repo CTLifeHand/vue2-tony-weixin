@@ -134,8 +134,8 @@ export default {
       @include sizeColor(0.64rem,#333);
       @include justify;
       align-items: center;
-      .push-button {
-      }
+      // .push-button {
+      // }
       .voice-music {
         @include sizeColor(0.512rem,#9c9c9c);
       }

@@ -307,7 +307,7 @@ export default {
       padding-top: 0.4rem;
       padding-bottom: 2.2rem;
       width: 15.4rem;
-      overflow-scrolling: touch;
+      // overflow-scrolling: touch;
       -webkit-overflow-scrolling: touch;
       top: 0;
       li {

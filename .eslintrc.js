@@ -21,5 +21,8 @@ module.exports = {
     'generator-star-spacing': 'off',
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
-  }
+  }, globals: {
+    io: true, // 配置好WebSocket的IO不报错
+    var2: true,
+  },
 }
